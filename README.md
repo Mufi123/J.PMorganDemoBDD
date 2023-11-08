@@ -24,30 +24,32 @@ Java: Java is the programming language of choice for this project, providing the
 
 Maven: Maven is used for project management and dependency resolution, simplifying the build and configuration process.
 
-## Project-Structure
+## Framework Architecture
+--------------
+    J.PMorganDemoBDDFrameWork
+    |
+    ├── src/test/java
+    |   ├── hooks
+    |   |   ├── Hooks.java
+    |   |   ...
+    |   ├── pageObjects
+    |   |   ├── GoogleSearchPage
+    |   |   ...
+    |   ├── runners
+    |   |   ├── TestRunner
+    |   |   ...
+    |   ├── steps
+    |   |   ├── GoogleSearchSteps
+    |   |   ...
+    |
+    ├── src/test/resources
+    |   ├── drivers
+    |   |   ├── chromedriver.exe
+    |   |   ...
+    |   ├── Features
+    |   |   ├── GoogleSearch.feature
+    |   |   ...
 
-J.PMorganDemoBDDFrameWork
-|
-|_src/test/java
-|	|_hooks
-|	|	|_Hooks.java
-|	|	|...
-|	|_pageObjects
-|	|	|_GoogleSearchPage
-|	|	|...
-|	|_runners
-|	|	|_TestRunner
-|	|	|...
-|	|_steps
-|	|	|_GoogleSearchSteps
-|	|	|...
-|_src/test/resources
-|	|_drivers
-|	|   |_chromedriver.exe
-|	|	|...
-|	|_Features
-|	| 	|_GoogleSearch.feature
-|	|	|...
 
 **hooks/Hooks** -- In `Hooks.java`, the browser is initialized before the test using the `@Before` hook, and it is closed after the test using the `@After` hook. Hooks ensure consistent test execution by offering a standardized approach to handle setup and teardown processes.
 
