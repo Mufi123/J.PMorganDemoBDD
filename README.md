@@ -79,8 +79,8 @@ Page Objects promote modularity and reusability by separating page-specific deta
 * Run tests from IDE. Most IDEs have built-in support for running Cucumber tests.  can run specific feature files, scenarios, or step definitions directly from the IDE.
 
 
-## Reports (.target)
-* In tests  implemented multiple reports like (HTML reports,JSON reports, JUNIT Reports)
+## Reporting
+* In tests  implemented multiple reports like (HTML reports,JSON reports, JUNIT Reports) , in base directory target folder 
 
         *HTML reports we can find the screenshot when tests are failed , we find the tests results in the reports
         *JSON reports generate proper JSON reports that can be integrated into other tools.
