@@ -1,16 +1,18 @@
 package steps;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import hooks.Hooks;
 import io.cucumber.java.PendingException;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-import io.cucumber.java.en.*;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.fail;
 
@@ -50,11 +52,8 @@ public class GoogleSearchSteps {
 	@When("user enters irrelevant search text in the search box")
 	public void user_enters_irrelevant_text_in_search_box() throws InterruptedException {
 		Thread.sleep(2000);
-
 		Hooks.driver.findElement(By.name("q")).sendKeys("thisistheirrelaventtext");
-
 		Thread.sleep(2000);
-
 	}
 
 	@And("hits enter")
