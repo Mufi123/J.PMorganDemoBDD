@@ -9,69 +9,66 @@ import io.cucumber.java.en.When;
 import pageObjects.GoogleSearchPage;
 
 public class GoogleSearchSteps {
-
 	private GoogleSearchPage googleSearchPage;
-	String projectPath = System.getProperty("user.dir");
-	@Given("browser window is open")
+
+	@Given("the browser window is open")
 	public void browser_is_open() {
 		googleSearchPage = new GoogleSearchPage(Hooks.driver);
 		googleSearchPage.navigateGoogle();
-		System.out.println("User opened the browser successfully");
-		System.out.println("Project path is : "+projectPath);
+		System.out.println("The user opened the browser successfully");
 	}
 
-	@And("user is on Google search page")
+	@And("the user is on the Google search page")
 	public void user_is_on_google_search_page() throws InterruptedException {
-
 		googleSearchPage.navigateGoogle();
 		Thread.sleep(2000);
 		googleSearchPage.acceptCookiePopup();
 	}
 
-	@When("user enters a \"J. P. Morgan\" in search box")
-	public void user_enters_a_text_in_search_box() throws InterruptedException {
+	@When("the user enters \"J. P. Morgan\" in the search box")
+	public void user_enters_text_in_search_box() throws InterruptedException {
 		googleSearchPage.enterTextInGoogle("J. P. Morgan");
-		System.out.println("User enters a text in search box successfully");
+		System.out.println("The user enters text in the search box successfully");
 	}
 
-	@When("user enters irrelevant search text in the search box")
+	@When("the user enters irrelevant search text in the search box")
 	public void user_enters_irrelevant_text_in_search_box() throws InterruptedException {
-		googleSearchPage.enterTextInGoogle("thisistheirrelaventtext");
+		googleSearchPage.enterTextInGoogle("thisistheirrelevanttext");
 	}
 
-	@And("hits enter")
+	@And("the user hits Enter")
 	public void hits_enter() throws InterruptedException {
 		googleSearchPage.clickEnterInGoogle();
-		System.out.println("User hits enter successfully");
+		System.out.println("The user hits Enter successfully");
 	}
 
-	@Then("user is navigated to the search results")
+	@Then("the user is navigated to the search results")
 	public void user_is_navigated_to_search_results() throws PendingException {
-	googleSearchPage.verifySearchResult();
+		googleSearchPage.verifySearchResult();
 	}
 
-	@And("user clicks on the first result")
+	@And("the user clicks on the first result")
 	public void user_is_navigated_to_jpmorgan_page() throws PendingException {
-	googleSearchPage.verifyNavigateToJpMorganPage();
+		googleSearchPage.verifyNavigateToJpMorganPage();
 	}
 
-	@Then("user verifies that the current URL matches to given URL")
-	public void user_verifies_the_current_url(){
+	@Then("the user verifies that the current URL matches the given URL")
+	public void user_verifies_the_current_url() {
 		googleSearchPage.verifyTheCurrentUrl();
 	}
-	@And("user verifies that the J.P. Morgan logo is displayed")
+
+	@And("the user verifies that the J.P. Morgan logo is displayed")
 	public void user_is_verify_to_jpmorgan_logo() throws PendingException {
-       googleSearchPage.verifyTheJpMorganLogo();
+		googleSearchPage.verifyTheJpMorganLogo();
 	}
 
-	@And("user verifies that the J.P. Morgan logo is not displayed")
+	@And("the user verifies that the J.P. Morgan logo is not displayed")
 	public void user_is_verify_to_jpmorgan_logo_not_displayed() throws PendingException {
 		googleSearchPage.jpMorganLogoIsNotDisplayed();
 	}
 
-	@And("user verifies that the J.P. Morgan logo is displayed in the top-left corner")
-	public void user_is_verify_logo_dimension_and_size(){
+	@And("the user verifies that the J.P. Morgan logo is displayed in the top-left corner")
+	public void user_is_verify_logo_dimension_and_size() {
 		googleSearchPage.checkForLogoDimension();
 	}
-
 }
