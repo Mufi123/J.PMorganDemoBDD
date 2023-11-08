@@ -71,6 +71,8 @@ Page Objects promote modularity and reusability by separating page-specific deta
 * Negative Testing - Invalid Search: In this negative test, we verify that invalid input should not display any results.
 
 ## Running-tests
+
+* The scenario has the `@HeadlessMode` tag and configure the test to run in headless mode accordingly. Remove `@HeadlessMode` for normal run.
 * Run tests from the command line using Maven. Open a terminal and navigate to project's root directory. Use the following command:
   `mvn clean install`
 * Run tests from IDE. Most IDEs have built-in support for running Cucumber tests.  can run specific feature files, scenarios, or step definitions directly from the IDE.
@@ -85,3 +87,22 @@ Page Objects promote modularity and reusability by separating page-specific deta
 
 
 
+## Resolved requirement
+  * Quality of BDD Scenarios
+      - Used clear and understandable language (Cucumber) that non-technical stakeholders can comprehend.
+  * Quality of Test Coverage
+      - Implemented scenarios that cover critical and high-risk areas of the application.
+      - Edge cases and negative scenarios are added to improve test coverage.
+  * Code Clarity and Maintainability
+      - Well-structured, and modular code for step definitions.
+      - Page object model for reusability 
+      - Followed Java coding standards and best practices.
+  * Design Patterns and Abstraction
+      - Page Object Model (POM) to encapsulate interactions with web elements.
+      - Step definitions and tests as abstract.
+  * Ease of Determining Test Failure(s) Reason
+      - Implemented meaningful assertions in step definitions to provide clear failure messages.
+      - Implemented reporting functionality 
+  * Dependency Management
+      - Maven for dependency management to keep track of project dependencies.
+      - Dependencies and their versions in `pom.xml` file.
