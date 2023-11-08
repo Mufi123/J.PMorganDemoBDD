@@ -1,6 +1,7 @@
 Feature: J.P. Morgan Logo Verification
 
   @HeadlessMode
+  @Chrome
   Scenario: Basic Functionality Test
     Given the browser window is open
     And the user is on the Google search page
@@ -11,6 +12,7 @@ Feature: J.P. Morgan Logo Verification
     And the user verifies that the J.P. Morgan logo is displayed
 
   @HeadlessMode
+  @Chrome
   Scenario: Navigation and URL Verification
     Given the browser window is open
     And the user is on the Google search page
@@ -20,6 +22,7 @@ Feature: J.P. Morgan Logo Verification
     And the user clicks on the first result
     Then the user verifies that the current URL matches the given URL
 
+  @Chrome
   Scenario: Logo Placement Verification
     Given the browser window is open
     And the user is on the Google search page
@@ -30,6 +33,7 @@ Feature: J.P. Morgan Logo Verification
     And the user verifies that the J.P. Morgan logo is displayed in the top-left corner
 
   @HeadlessMode
+  @Chrome
   Scenario: Negative Testing - Invalid Search
     Given the browser window is open
     And the user is on the Google search page

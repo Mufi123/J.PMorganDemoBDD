@@ -8,6 +8,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,30 +21,8 @@ public class Hooks {
 	 *
 	 * @param scenario The Cucumber scenario to check if it's tagged with @HeadlessMode.
 	 */
-	@Before
+	@Before("@Chrome")
 	public void browserSetup(Scenario scenario) {
-
-		if (scenario.getSourceTagNames().contains("@Mobile")) {
-			// Initialize Appium for mobile testing
-//			public static AppiumDriver<?> appiumDriver;
-//			appiumDriver = initializeAppiumDriver();
-//			private AppiumDriver<?> initializeAppiumDriver() {
-//				DesiredCapabilities capabilities = new DesiredCapabilities();
-//				// Set desired capabilities for your mobile app testing
-//
-//				AppiumDriver<?> driver; // AppiumDriver is a generic type for AndroidDriver or IOSDriver
-//
-//				if (isAndroid()) {
-//					driver = new AndroidDriver<>(new URL("http://localhost:4723/wd/hub"), capabilities);
-//				} else if (isIOS()) {
-//					driver = new IOSDriver<>(new URL("http://localhost:4723/wd/hub"), capabilities);
-//				} else {
-//					throw new IllegalArgumentException("Invalid mobile platform specified");
-//				}
-//
-//			}
-		}
-		else {
 			System.out.println("Inside browserSetup");
 			boolean headlessMode = scenario.getSourceTagNames().contains("@HeadlessMode");
 
@@ -63,7 +42,34 @@ public class Hooks {
 			driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
-		}
+	}
+
+	@Before("Mobile")
+	public void mobileSetUp(){
+			// Initialize Appium for mobile testing
+//			public static AppiumDriver<?> appiumDriver;
+//			appiumDriver = initializeAppiumDriver();
+//			private AppiumDriver<?> initializeAppiumDriver() {
+//				DesiredCapabilities capabilities = new DesiredCapabilities();
+//				// Set desired capabilities for your mobile app testing
+//
+//				AppiumDriver<?> driver; // AppiumDriver is a generic type for AndroidDriver or IOSDriver
+//
+//				if (isAndroid()) {
+//					driver = new AndroidDriver<>(new URL("http://localhost:4723/wd/hub"), capabilities);
+//				} else if (isIOS()) {
+//					driver = new IOSDriver<>(new URL("http://localhost:4723/wd/hub"), capabilities);
+//				} else {
+//					throw new IllegalArgumentException("Invalid mobile platform specified");
+//				}
+//
+//			}
+	}
+
+	@Before("@Firefox")
+	public void setupFirefoxDriver() {
+		System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver.exe");
+		driver = new FirefoxDriver();
 	}
 
 	/**

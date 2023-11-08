@@ -73,6 +73,7 @@ Page Objects promote modularity and reusability by separating page-specific deta
 ## Running-tests
 
 * The scenario has the `@HeadlessMode` tag and configure the test to run in headless mode accordingly. Remove `@HeadlessMode` for normal run.
+* `@Firefox` and `@Chrome` tags are used to select browser to run the tests
 * Run tests from the command line using Maven. Open a terminal and navigate to project's root directory. Use the following command:
   `mvn clean install`
 * Run tests from IDE. Most IDEs have built-in support for running Cucumber tests.  can run specific feature files, scenarios, or step definitions directly from the IDE.
