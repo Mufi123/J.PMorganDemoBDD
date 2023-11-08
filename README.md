@@ -106,3 +106,6 @@ Page Objects promote modularity and reusability by separating page-specific deta
   * Dependency Management
       - Maven for dependency management to keep track of project dependencies.
       - Dependencies and their versions in `pom.xml` file.
+
+## Appium testing
+  * `@Mobile`  tag to run the same script in Appium, you will need to install the Appium server to execute the script. Additionally, please note that creating and running the test script is not compatible with my system (so this is the idea concept).

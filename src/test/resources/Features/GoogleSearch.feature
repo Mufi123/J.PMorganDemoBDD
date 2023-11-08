@@ -20,7 +20,6 @@ Feature: J.P. Morgan Logo Verification
     And user clicks on the first result
     Then user verifies that the current URL matches to given URL
 
-  @HeadlessMode
   Scenario: Logo Placement Verification
     Given browser window is open
     And user is on Google search page
