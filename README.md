@@ -1,5 +1,5 @@
 # Project Name
-BDD+Cucumber+Java
+J.PMorgan Demo Project with BDD+Cucumber
 selenium-cucumber : Automation Testing Using Java
 
 selenium-cucumber is a behavior driven development (BDD) approach to write automation test script to test Web. It enables to write and execute automated acceptance/unit tests. It is cross-platform, open source and free. Automate test cases with minimal coding
