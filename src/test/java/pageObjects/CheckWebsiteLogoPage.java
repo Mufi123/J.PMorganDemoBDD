@@ -12,10 +12,10 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.fail;
 
-public class GoogleSearchPage {
+public class CheckWebsiteLogoPage {
     private final WebDriver driver;
 
-    public GoogleSearchPage(WebDriver driver) {
+    public CheckWebsiteLogoPage(WebDriver driver) {
         this.driver = driver;
     }
 
