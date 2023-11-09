@@ -90,7 +90,9 @@ Page Objects promote modularity and reusability by separating page-specific deta
 
 * Failed test reports with screenshot attached in the reports (refer below screenshot)
         ![img_1.png](img_1.png)
-    
+
+* Configured allure reports for exact and fine report , to generate allure report navigate to the  base directory and use this command `allure serve allure-results`
+        ![img_2.png](img_2.png)
 
 ## Resolved requirement
   * Quality of BDD Scenarios

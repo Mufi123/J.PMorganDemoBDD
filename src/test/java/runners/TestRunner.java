@@ -10,7 +10,7 @@ glue= {"steps", "hooks"},
 monochrome= true,
 plugin = {"pretty", "junit:target/JUnitReports/report.xml",
 		"json:target/JSONReports/report.json",
-		"html:target/HtmlReports"}
+		"html:target/HtmlReports", "io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"}
 )
 public class TestRunner {
 
