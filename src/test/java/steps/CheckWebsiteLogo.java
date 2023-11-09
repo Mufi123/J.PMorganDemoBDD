@@ -6,16 +6,20 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import pageObjects.CheckWebsiteLogoPage;
 
 public class CheckWebsiteLogo {
+	public Logger logger = LogManager.getLogger(CheckWebsiteLogo.class);
 	private CheckWebsiteLogoPage checkWebsiteLogoPage;
+
 
 	@Given("the browser window is open")
 	public void browser_is_open() {
 		checkWebsiteLogoPage = new CheckWebsiteLogoPage(Hooks.driver);
 		checkWebsiteLogoPage.navigateGoogle();
-		System.out.println("The user opened the browser successfully");
+		logger.info("The user opened the browser successfully");
 	}
 
 	@And("the user is on the Google search page")
@@ -28,7 +32,7 @@ public class CheckWebsiteLogo {
 	@When("the user enters \"J. P. Morgan\" in the search box")
 	public void user_enters_text_in_search_box() throws InterruptedException {
 		checkWebsiteLogoPage.enterTextInGoogle("J. P. Morgan");
-		System.out.println("The user enters text in the search box successfully");
+		logger.info("The user enters text in the search box successfully");
 	}
 
 	@When("the user enters irrelevant search text in the search box")
@@ -39,7 +43,7 @@ public class CheckWebsiteLogo {
 	@And("the user hits Enter")
 	public void hits_enter() throws InterruptedException {
 		checkWebsiteLogoPage.clickEnterInGoogle();
-		System.out.println("The user hits Enter successfully");
+		logger.info("The user hits Enter successfully");
 	}
 
 	@Then("the user is navigated to the search results")

@@ -80,13 +80,17 @@ Page Objects promote modularity and reusability by separating page-specific deta
 
 
 ## Reporting
-* In tests  implemented multiple reports like (HTML reports,JSON reports, JUNIT Reports) , in base directory target folder 
+* In tests  implemented multiple reports like (HTML reports,JSON reports, JUNIT Reports) , in base directory target folder
+    * Logs are displayed in console with proper methods
+        ![img.png](img.png)
 
-        *HTML reports we can find the screenshot when tests are failed , we find the tests results in the reports
-        *JSON reports generate proper JSON reports that can be integrated into other tools.
-        *JUnit reports generate xml report for the running tests
+            *HTML reports we can find the screenshot when tests are failed , we find the tests results in the reports
+            *JSON reports generate proper JSON reports that can be integrated into other tools.
+            *JUnit reports generate xml report for the running tests
 
-
+* Failed test reports with screenshot attached in the reports (refer below screenshot)
+        ![img_1.png](img_1.png)
+    
 
 ## Resolved requirement
   * Quality of BDD Scenarios

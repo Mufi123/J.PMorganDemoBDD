@@ -1,6 +1,8 @@
 package pageObjects;
 
 import hooks.Hooks;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -14,6 +16,7 @@ import static org.junit.Assert.fail;
 
 public class CheckWebsiteLogoPage {
     private final WebDriver driver;
+    public Logger logger = LogManager.getLogger(CheckWebsiteLogoPage.class);
 
     public CheckWebsiteLogoPage(WebDriver driver) {
         this.driver = driver;
@@ -27,9 +30,9 @@ public class CheckWebsiteLogoPage {
         try {
             WebElement acceptButton = driver.findElement(By.xpath("//button[@id='W0wltc']"));
             acceptButton.click();
-            System.out.println("'Accept cookie' popup is handled succesfully ");
+            logger.info("'Accept cookie' popup is handled succesfully ");
         } catch (org.openqa.selenium.NoSuchElementException e) {
-            System.out.println("'Cookie Accept' button is not displayed.");
+            logger.error("'Cookie Accept' button is not displayed.");
         }
     }
 
@@ -61,7 +64,7 @@ public class CheckWebsiteLogoPage {
         }
 
         if (expectedContentFound) {
-            System.out.println("Expected content 'J.P. Morgan | Official Website' found in search results.");
+            logger.info("Expected content 'J.P. Morgan | Official Website' found in search results.");
         } else {
             fail("Expected content 'J.P. Morgan | Official Website' not found in search results.");
         }
@@ -73,12 +76,12 @@ public class CheckWebsiteLogoPage {
             if (!elements.isEmpty()) {
                 WebElement firstElement = elements.get(0);
                 firstElement.click();
-                System.out.println("'First result' is clicked  successfully ");
+                logger.info("'First result' is clicked  successfully ");
             } else {
-                System.out.println("No elements found with the CSS class \".g h3\"");
+                logger.error("No elements found with the CSS class \".g h3\"");
             }
         } catch (org.openqa.selenium.NoSuchElementException e) {
-            System.out.println("Error while entered into  J.P. Morgan | Official Website");
+            logger.error("Error while entered into  J.P. Morgan | Official Website");
         }
     }
 
