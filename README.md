@@ -15,7 +15,7 @@ selenium-cucumber is a behavior driven development (BDD) approach to write autom
 
 
 ## Introduction
-This project is a demonstration of Behavior-Driven Development (BDD) using Cucumber, Java, and Maven. BDD is an agile software development methodology that encourages collaboration among developers, testers, and non-technical stakeholders to define and test application behavior in a common language that everyone can understand.
+The task at hand is to develop a comprehensive automated testing solution that covers the critical functionality of opening Google, searching for "J. P. Morgan," clicking the first result returned by Google, and verifying the presence of the J.P. Morgan logo. This scenario involves Web automation and requires the use of Cucumber for behavior-driven development, Selenium for interacting with the web browser, and Java as the programming language.
 
 #### Key Components
 Cucumber: Cucumber is a widely-used BDD framework that allows to write executable specifications using plain text and Gherkin syntax.
