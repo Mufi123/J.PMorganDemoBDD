@@ -1,11 +1,10 @@
 # Project Name
-J.PMorgan Demo Project with BDD+Cucumber
-selenium-cucumber : Automation Testing Using Java
+**J.P.Morgan Demo Project with BDD+Cucumber and Selenium**
 
-selenium-cucumber is a behavior driven development (BDD) approach to write automation test script to test Web. It enables to write and execute automated acceptance/unit tests. It is cross-platform, open source and free. Automate test cases with minimal coding
+## Overview
+Welcome to the J.P. Morgan Demo Project, an automated testing solution using the Behavior-Driven Development (BDD) approach with Cucumber and Selenium. This project aims to comprehensively test critical functionalities such as opening Google, searching for "J. P. Morgan," clicking the first result, and verifying the presence of the J.P. Morgan logo. This README provides an overview of the project structure, key components, and instructions for running and reporting tests.
 
 ## Table of Contents
-
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
@@ -13,42 +12,36 @@ selenium-cucumber is a behavior driven development (BDD) approach to write autom
 - [Running Tests](#running-tests)
 - [Reporting](#reporting)
 
-
 ## Introduction
-The task at hand is to develop a comprehensive automated testing solution that covers the critical functionality of opening Google, searching for "J. P. Morgan," clicking the first result returned by Google, and verifying the presence of the J.P. Morgan logo. This scenario involves Web automation and requires the use of Cucumber for behavior-driven development, Selenium for interacting with the web browser, and Java as the programming language.
+The J.P. Morgan Demo Project utilizes Selenium and Cucumber for BDD automation testing. The primary components include Cucumber for executable specifications, Java as the programming language, and Maven for project management. The framework follows a modular structure to ensure maintainability and ease of use.
 
 ### Key Components
-Cucumber: Cucumber is a widely-used BDD framework that allows to write executable specifications using plain text and Gherkin syntax.
-
-Java: Java is the programming language of choice for this project, providing the flexibility and robustness required for implementing BDD test automation.
-
-Maven: Maven is used for project management and dependency resolution, simplifying the build and configuration process.
+- **Cucumber:** A BDD framework for writing executable specifications.
+- **Java:** The chosen programming language for flexibility and robust test automation.
+- **Maven:** Manages project dependencies and simplifies build and configuration processes.
 
 ## Framework Architecture
---------------
+The project follows a structured framework with distinct components:
+
+    
     J.PMorganDemoBDDFrameWork
     |
     ├── src/test/java
     |   ├── hooks
     |   |   ├── Hooks.java
-    |   |   ...
     |   ├── pageObjects
     |   |   ├── GoogleSearchPage
-    |   |   ...
     |   ├── runners
     |   |   ├── TestRunner
-    |   |   ...
     |   ├── steps
     |   |   ├── GoogleSearchSteps
-    |   |   ...
     |
     ├── src/test/resources
     |   ├── drivers
     |   |   ├── chromedriver.exe
-    |   |   ...
     |   ├── Features
     |   |   ├── GoogleSearch.feature
-    |   |   ...
+
 
 
 **hooks/Hooks** -- In `Hooks.java`, the browser is initialized before the test using the `@Before` hook, and it is closed after the test using the `@After` hook. Hooks ensure consistent test execution by offering a standardized approach to handle setup and teardown processes.
@@ -70,49 +63,47 @@ Page Objects promote modularity and reusability by separating page-specific deta
 * Logo Placement Verification: This positive test ensures that the logo is correctly positioned on the page.
 * Negative Testing - Invalid Search: In this negative test, we verify that invalid input should not display any results.
 
-## Running-tests
-
-* The scenario has the `@HeadlessMode` tag and configure the test to run in headless mode accordingly. Remove `@HeadlessMode` for normal run.
-* `@Firefox` and `@Chrome` tags are used to select browser to run the tests
-* Run tests from the command line using Maven. Open a terminal and navigate to project's root directory. Use the following command:
-  `mvn clean install`
-* Run tests from IDE. Most IDEs have built-in support for running Cucumber tests.  can run specific feature files, scenarios, or step definitions directly from the IDE.
+## Running Tests
+- Use `@HeadlessMode` tag to configure tests to run in headless mode. Remove for normal run.
+- `@Firefox` and `@Chrome` tags select the browser for test execution.
+- Run tests from the command line using Maven: `mvn clean install`.
+- IDEs typically support running Cucumber tests directly.
 
 
 ## Reporting
-* In tests  implemented multiple reports like (HTML reports,JSON reports, JUNIT Reports) , in base directory target folder
-    * Logs are displayed in console with proper methods
+* Multiple reports generated: HTML, JSON, and JUnit reports in the target directory.
+* Console logs include proper methods for easy debugging.
         ![img.png](img.png)
 
             *HTML reports we can find the screenshot when tests are failed , we find the tests results in the reports
             *JSON reports generate proper JSON reports that can be integrated into other tools.
             *JUnit reports generate xml report for the running tests
 
-* Failed test reports with screenshot attached in the reports (refer below screenshot)
+* Screenshots in HTML reports highlight failed tests.
         ![img_1.png](img_1.png)
 
-* Configured allure reports for exact and fine report , to generate allure report navigate to the  base directory and use this command `allure serve allure-results`
+* Configured Allure reports for detailed analysis: `allure serve allure-results`.
         ![img_2.png](img_2.png)
 
-## Resolved requirement
-  * Quality of BDD Scenarios
-      - Used clear and understandable language (Cucumber) that non-technical stakeholders can comprehend.
-  * Quality of Test Coverage
-      - Implemented scenarios that cover critical and high-risk areas of the application.
-      - Edge cases and negative scenarios are added to improve test coverage.
-  * Code Clarity and Maintainability
-      - Well-structured, and modular code for step definitions.
-      - Page object model for reusability 
-      - Followed Java coding standards and best practices.
-  * Design Patterns and Abstraction
-      - Page Object Model (POM) to encapsulate interactions with web elements.
-      - Step definitions and tests as abstract.
-  * Ease of Determining Test Failure(s) Reason
-      - Implemented meaningful assertions in step definitions to provide clear failure messages.
-      - Implemented reporting functionality 
-  * Dependency Management
-      - Maven for dependency management to keep track of project dependencies.
-      - Dependencies and their versions in `pom.xml` file.
+## Resolved Requirements
+- Quality of BDD Scenarios:
+    - Clear and understandable language (Cucumber) for non-technical stakeholders.
+- Quality of Test Coverage:
+    - Covers critical areas, including edge cases and negative scenarios.
+- Code Clarity and Maintainability:
+    - Well-structured, modular code following Java coding standards.
+    - Page Object Model (POM) for reusability.
+- Design Patterns and Abstraction:
+    - Implements Page Object Model (POM) for encapsulating interactions.
+    - Abstract step definitions and tests.
+- Ease of Determining Test Failure(s) Reason:
+    - Meaningful assertions for clear failure messages.
+    - Implemented reporting functionality.
+- Dependency Management:
+    - Maven for efficient dependency management in `pom.xml`.
 
-## Appium testing
-  * `@Mobile`  tag to run the same script in Appium, you will need to install the Appium server to execute the script. Additionally, please note that creating and running the test script is not compatible with my system (so this is the idea concept).
+## Appium Testing
+- Use `@Mobile` tag for Appium testing. Note: Requires Appium server installation for execution.
+
+
+
