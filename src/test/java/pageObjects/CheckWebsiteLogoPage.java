@@ -17,6 +17,10 @@ import static org.junit.Assert.fail;
 public class CheckWebsiteLogoPage {
     private final WebDriver driver;
     public Logger logger = LogManager.getLogger(CheckWebsiteLogoPage.class);
+    private static final By ACCEPT_COOKIE_BUTTON = By.xpath("//button[@id='W0wltc']");
+    private static final By SEARCH_INPUT = By.name("q");
+    private static final By SEARCH_RESULTS = By.cssSelector(".g h3");
+    private static final By JP_MORGAN_LOGO = By.cssSelector(".primary-navigation-logo-image");
 
     public CheckWebsiteLogoPage(WebDriver driver) {
         this.driver = driver;
@@ -28,7 +32,7 @@ public class CheckWebsiteLogoPage {
 
     public void acceptCookiePopup(){
         try {
-            WebElement acceptButton = driver.findElement(By.xpath("//button[@id='W0wltc']"));
+            WebElement acceptButton = driver.findElement(ACCEPT_COOKIE_BUTTON);
             acceptButton.click();
             logger.info("'Accept cookie' popup is handled succesfully ");
         } catch (org.openqa.selenium.NoSuchElementException e) {
@@ -38,13 +42,13 @@ public class CheckWebsiteLogoPage {
 
     public void enterTextInGoogle(String searchText) throws InterruptedException {
         Thread.sleep(2000);
-        Hooks.driver.findElement(By.name("q")).sendKeys(searchText);
+        Hooks.driver.findElement(SEARCH_INPUT).sendKeys(searchText);
         Thread.sleep(2000);
     }
 
     public void clickEnterInGoogle() throws InterruptedException {
         try {
-            Hooks.driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
+            Hooks.driver.findElement(SEARCH_INPUT).sendKeys(Keys.ENTER);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -72,7 +76,7 @@ public class CheckWebsiteLogoPage {
 
     public void verifyNavigateToJpMorganPage() {
         try {
-            List<WebElement> elements = Hooks.driver.findElements(By.cssSelector(".g h3"));
+            List<WebElement> elements = Hooks.driver.findElements(SEARCH_RESULTS);
             if (!elements.isEmpty()) {
                 WebElement firstElement = elements.get(0);
                 firstElement.click();
@@ -99,7 +103,7 @@ public class CheckWebsiteLogoPage {
     public void verifyTheJpMorganLogo() {
         WebElement logoImage = null;
         try {
-            logoImage = Hooks.driver.findElement(By.cssSelector(".primary-navigation-logo-image"));
+            logoImage = Hooks.driver.findElement(JP_MORGAN_LOGO);
             Hooks.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             if (logoImage.isDisplayed()) {
                 System.out.println("Logo image is present on the webpage.");
@@ -114,7 +118,7 @@ public class CheckWebsiteLogoPage {
     public void jpMorganLogoIsNotDisplayed() {
         WebElement logoImage = null;
         try {
-            logoImage = Hooks.driver.findElement(By.cssSelector(".primary-navigation-logo-image"));
+            logoImage = Hooks.driver.findElement(JP_MORGAN_LOGO);
             if (logoImage.isDisplayed()) {
                 fail("Logo image is present on the webpage.");
             } else {
@@ -137,7 +141,7 @@ public class CheckWebsiteLogoPage {
 
         // Verify that the logo is within the expected placement
         try {
-            logoImage = Hooks.driver.findElement(By.cssSelector(".primary-navigation-logo-image"));
+            logoImage = Hooks.driver.findElement(JP_MORGAN_LOGO);
 
             // Get the logo's location and size
             org.openqa.selenium.Point logoLocation = logoImage.getLocation();
