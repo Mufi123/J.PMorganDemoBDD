@@ -1,6 +1,12 @@
 stages:
   - build
   - test
+  - update
+
+update:
+   stage: update
+   script:
+     - git pull origin master
 
 build:
   stage: build
