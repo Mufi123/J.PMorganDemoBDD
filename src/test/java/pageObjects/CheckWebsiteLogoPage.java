@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.fail;
 
+// Class responsible for checking various aspects of a website's logo
 public class CheckWebsiteLogoPage {
     private final WebDriver driver;
     public Logger logger = LogManager.getLogger(CheckWebsiteLogoPage.class);
@@ -22,14 +23,17 @@ public class CheckWebsiteLogoPage {
     private static final By SEARCH_RESULTS = By.cssSelector(".g h3");
     private static final By JP_MORGAN_LOGO = By.cssSelector(".primary-navigation-logo-image");
 
+    // Constructor to initialize the WebDriver
     public CheckWebsiteLogoPage(WebDriver driver) {
         this.driver = driver;
     }
 
+    // Navigates to the Google website
     public void navigateGoogle(){
         driver.navigate().to("https://google.com");
     }
 
+    // Handles the cookie popup by clicking the 'Accept' button
     public void acceptCookiePopup(){
         try {
             WebElement acceptButton = driver.findElement(ACCEPT_COOKIE_BUTTON);
@@ -40,12 +44,14 @@ public class CheckWebsiteLogoPage {
         }
     }
 
+    // Enters the specified text into the Google search bar
     public void enterTextInGoogle(String searchText) throws InterruptedException {
         Thread.sleep(2000);
         Hooks.driver.findElement(SEARCH_INPUT).sendKeys(searchText);
         Thread.sleep(2000);
     }
 
+    // Simulates pressing the Enter key in the Google search bar
     public void clickEnterInGoogle() throws InterruptedException {
         try {
             Hooks.driver.findElement(SEARCH_INPUT).sendKeys(Keys.ENTER);
@@ -56,6 +62,7 @@ public class CheckWebsiteLogoPage {
         Thread.sleep(2000);
     }
 
+    // Verifies that the search results contain the expected content
     public void verifySearchResult() {
         String pageSource;
         boolean expectedContentFound = false;
@@ -74,6 +81,7 @@ public class CheckWebsiteLogoPage {
         }
     }
 
+    // Verifies that clicking the first search result navigates to J.P. Morgan's official website
     public void verifyNavigateToJpMorganPage() {
         try {
             List<WebElement> elements = Hooks.driver.findElements(SEARCH_RESULTS);
@@ -89,6 +97,7 @@ public class CheckWebsiteLogoPage {
         }
     }
 
+    // Verifies that the current URL matches the expected URL
     public void verifyTheCurrentUrl() {
         try{
             Hooks.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -100,6 +109,7 @@ public class CheckWebsiteLogoPage {
         }
     }
 
+    // Verifies that the J.P. Morgan logo is displayed on the webpage
     public void verifyTheJpMorganLogo() {
         WebElement logoImage = null;
         try {
@@ -115,6 +125,8 @@ public class CheckWebsiteLogoPage {
         }
     }
 
+
+    // Verifies that the J.P. Morgan logo is not displayed on the webpage
     public void jpMorganLogoIsNotDisplayed() {
         WebElement logoImage = null;
         try {
@@ -129,6 +141,7 @@ public class CheckWebsiteLogoPage {
         }
     }
 
+    // Checks the dimensions and placement of the J.P. Morgan logo on the webpage
     public void checkForLogoDimension() {
         WebElement logoImage = null;
 
