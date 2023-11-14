@@ -14,7 +14,7 @@ target/
 *.ipr
 
 ### Allure ###
-.allure-results
+allure-results/
 .allure
 
 ### Eclipse ###

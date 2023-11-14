@@ -106,9 +106,9 @@ public class CheckWebsiteLogoPage {
             Hooks.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             String currentURL = Hooks.driver.getCurrentUrl();
             Assert.assertEquals("https://www.jpmorgan.com/global", currentURL);
-            System.out.println("J.P. Morgan | Official Website page is loaded successfully");
+            logger.info("J.P. Morgan | Official Website page is loaded successfully");
         }catch (org.openqa.selenium.NoSuchElementException e) {
-            System.out.println("J.P. Morgan | Official Website page is not loaded successfully");
+            logger.info("J.P. Morgan | Official Website page is not loaded successfully");
         }
     }
 
