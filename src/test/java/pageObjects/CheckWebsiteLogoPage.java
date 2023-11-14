@@ -12,8 +12,6 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.fail;
-
 // Class responsible for checking various aspects of a website's logo
 public class CheckWebsiteLogoPage {
     private final WebDriver driver;
@@ -43,7 +41,7 @@ public class CheckWebsiteLogoPage {
             acceptButton.click();
             logger.info("'Accept cookie' popup is handled succesfully ");
         } catch (org.openqa.selenium.NoSuchElementException e) {
-            logger.error("'Cookie Accept' button is not displayed.");
+            Assert.fail("'Cookie Accept' button is not displayed.");
         }
     }
 
@@ -74,13 +72,13 @@ public class CheckWebsiteLogoPage {
             expectedContentFound = pageSource.contains("J.P. Morgan | Official Website");
 
         } catch (Exception e) {
-            fail("Expected content 'J.P. Morgan | Official Website' not found in search results.");
+            Assert.fail("Expected content 'J.P. Morgan | Official Website' not found in search results.");
         }
 
         if (expectedContentFound) {
             logger.info("Expected content 'J.P. Morgan | Official Website' found in search results.");
         } else {
-            fail("Expected content 'J.P. Morgan | Official Website' not found in search results.");
+            Assert.fail("Expected content 'J.P. Morgan | Official Website' not found in search results.");
         }
     }
 
@@ -93,10 +91,10 @@ public class CheckWebsiteLogoPage {
                 firstElement.click();
                 logger.info("'First result' is clicked  successfully ");
             } else {
-                logger.error("No elements found with the CSS class \".g h3\"");
+                Assert.fail("No elements found with the CSS class \".g h3\"");
             }
         } catch (org.openqa.selenium.NoSuchElementException e) {
-            logger.error("Error while entered into  J.P. Morgan | Official Website");
+            Assert.fail("Error while entered into  J.P. Morgan | Official Website");
         }
     }
 
@@ -108,7 +106,7 @@ public class CheckWebsiteLogoPage {
             Assert.assertEquals("https://www.jpmorgan.com/global", currentURL);
             logger.info("J.P. Morgan | Official Website page is loaded successfully");
         }catch (org.openqa.selenium.NoSuchElementException e) {
-            logger.info("J.P. Morgan | Official Website page is not loaded successfully");
+            System.out.println("J.P. Morgan | Official Website page is not loaded successfully");
         }
     }
 
@@ -121,10 +119,10 @@ public class CheckWebsiteLogoPage {
             if (logoImage.isDisplayed()) {
                 System.out.println("Logo image is present on the webpage.");
             } else {
-                fail("Logo image is not present on the webpage.");
+                Assert.fail("Logo image is not present on the webpage.");
             }
         } catch (Exception e) {
-            fail("Logo image is not present on the webpage.");
+            Assert.fail("Logo image is not present on the webpage.");
         }
     }
 
@@ -135,7 +133,7 @@ public class CheckWebsiteLogoPage {
         try {
             logoImage = Hooks.driver.findElement(Elements.JP_MORGAN_LOGO);
             if (logoImage.isDisplayed()) {
-                fail("Logo image is present on the webpage.");
+                Assert.fail("Logo image is present on the webpage.");
             } else {
                 System.out.println("Logo image is not present on the webpage.");
             }
@@ -171,10 +169,10 @@ public class CheckWebsiteLogoPage {
                     (yCoordinate >= expectedY - tolerance) && (yCoordinate <= expectedY + tolerance)) {
                 System.out.println("Logo is placed within the expected coordinates.");
             } else {
-                fail("Logo is not placed within the expected coordinates.");
+                Assert.fail("Logo is not placed within the expected coordinates.");
             }
         } catch (Exception e) {
-            fail("Logo is not placed within the expected coordinates.");
+            Assert.fail("Logo is not placed within the expected coordinates.");
         }
     }
 }
